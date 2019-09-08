@@ -1,0 +1,12 @@
+.app_navbar {
+    grid-area: app-nav;
+    background-color: antiquewhite;
+}
+
+.app_item {
+    color: brown;
+}
+
+.app_active {
+    color: blue;
+}
