@@ -13,10 +13,8 @@ const MyPosts = () => {
             <div>
                 <h4>My posts</h4>
                 <div className={styles.app_posts}>
-                    <Post/>
-                    <Post/>
-                    <Post/>
-                    <Post/>
+                    <Post message='Hi, how are you?' numberLikes='15'/>
+                    <Post message='It is my first post'  numberLikes='20'/>
                 </div>
             </div>
         </div>
