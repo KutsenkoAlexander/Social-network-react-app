@@ -1,7 +1,3 @@
-.app_profile {
-    grid-area: app-content;
-}
-  
 .app_profile_image img {
     width: 100%;
 }
