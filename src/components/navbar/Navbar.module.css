@@ -1,7 +1,7 @@
 .app_navbar {
     grid-area: app-nav;
     background-color: antiquewhite;
-    padding: 5px;
+    padding: 10px;
 }
 
 .app_item {

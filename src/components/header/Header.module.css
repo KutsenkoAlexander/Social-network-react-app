@@ -1,23 +1,18 @@
 .app_header {
     background-color: antiquewhite;
     grid-area: app-header;
-
     display: grid;
-    grid-template-areas:
-            "app-header-logo app-header-text";
-    grid-template-rows: 60px 1fr;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 0.5fr 11.5fr;
 }
   
 .app_header img {
-    grid-area: app-header-logo;
     width: 60px;
     animation: App-logo-spin infinite 20s linear;
     pointer-events: none;
 }
 
 .app_header h3 {
-    grid-area: app-header-text;
+
 }
 
 @keyframes App-logo-spin {

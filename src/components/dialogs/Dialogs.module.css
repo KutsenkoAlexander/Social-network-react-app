@@ -1,0 +1,30 @@
+.app_dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.app_dialog_items {
+    color: brown;
+    padding: 10px;
+}
+
+.app_dialog_items .active {
+    color: coral;
+}
+
+.app_dialog {
+    padding: 6px 5px;
+    border-bottom: 1px #a2a2a2 solid;
+}
+
+.app_dialog_messages {
+    padding: 10px;
+}
+
+.app_message {
+    margin-bottom: 7px;
+    padding: 5px;
+    border-radius: 7px;
+    background-color: antiquewhite;
+    border-bottom: 1px solid khaki;
+}

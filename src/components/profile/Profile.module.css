@@ -5,13 +5,10 @@
 .app_profile_info {
     background-color: inherit;
     display: grid;
-    grid-template-areas: "app-user-avatar app-user-description";
-    grid-template-rows: 1fr;
     grid-template-columns: 130px 10fr;
 }
 
 .app_profile_info img {
-    grid-area: app-user-avatar;
     width: 122px;
     height: 122px;
     margin: 0px auto;
@@ -19,7 +16,6 @@
 }
 
 .app_profile_description {
-    grid-area: app-user-description;
     background-color: inherit;
     text-align: left;
 }

@@ -12,10 +12,10 @@ import {BrowserRouter, Route} from "react-router-dom";
 function App() {
     return (
         <BrowserRouter>
-            <div className="app-wrapper">
+            <div className="app_wrapper">
                 <Header/>
                 <Navbar/>
-                <div className="app-wrapper-content">
+                <div className="app_wrapper_content">
                     <Route path='/profile' component={Profile}/>
                     <Route path='/dialogs' component={Dialogs}/>
                     <Route path='/news' component={News}/>
