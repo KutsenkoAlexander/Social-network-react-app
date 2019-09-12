@@ -1,0 +1,19 @@
+.posts {
+    background-color: inherit;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.posts h4 {
+    margin: 20px 0 10px 0;
+}
+
+.new_post textarea {
+    width: 50%;
+    height: 75px;
+}
+
+.new_post button {
+
+}

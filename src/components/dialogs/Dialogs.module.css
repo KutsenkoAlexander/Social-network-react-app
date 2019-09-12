@@ -1,27 +1,27 @@
-.app_dialogs {
+.dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
 
-.app_dialog_items {
+.dialog_items {
     color: brown;
     padding: 10px;
 }
 
-.app_dialog_items .active {
+.dialog_items .active {
     color: coral;
 }
 
-.app_dialog {
+.dialog {
     padding: 6px 5px;
     border-bottom: 1px #a2a2a2 solid;
 }
 
-.app_dialog_messages {
+.dialog_messages {
     padding: 10px;
 }
 
-.app_message {
+.message {
     margin-bottom: 7px;
     padding: 5px;
     border-radius: 7px;

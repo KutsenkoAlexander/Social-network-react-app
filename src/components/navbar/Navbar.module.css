@@ -1,18 +1,18 @@
-.app_navbar {
+.navbar {
     grid-area: app-nav;
     background-color: antiquewhite;
     padding: 10px;
 }
 
-.app_item {
+.item {
     padding-bottom: 7px;
 }
 
-.app_item a {
+.item a {
     color: brown;
     text-decoration: none;
 }
 
-.app_item a.app_active_link{
+.item a.active_link{
     color: coral;
 }

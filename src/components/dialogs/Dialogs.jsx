@@ -1,36 +1,38 @@
 import React from 'react';
 import style from './Dialogs.module.css'
+import {NavLink} from "react-router-dom";
+
+const DialogItem = (props) => {
+    let path = '/dialogs/'+props.id;
+    return(
+        <div className={style.dialog + ' ' + style.active}>
+            <NavLink to={path}>{props.name}</NavLink>
+        </div>
+    );
+}
+
+const Message = (props) => {
+    return (
+        <div className={style.message}>
+            {props.text}
+        </div>
+    );
+}
 
 const Dialogs = () => {
     return (
-        <div className={style.app_dialogs}>
-            <div className={style.app_dialog_items}>
-                <div className={style.app_dialog + ' ' + style.active}>
-                    Alex
-                </div>
-                <div className={style.app_dialog}>
-                    John
-                </div>
-                <div className={style.app_dialog}>
-                    Bob
-                </div>
-                <div className={style.app_dialog}>
-                    Jim
-                </div>
+        <div className={style.dialogs}>
+            <div className={style.dialog_items}>
+                <DialogItem name='Alex' id='1'/>
+                <DialogItem name='John' id='2'/>
+                <DialogItem name='Bob' id='3'/>
+                <DialogItem name='Jim' id='4'/>
             </div>
-            <div className={style.app_dialog_messages}>
-                <div className={style.app_message}>
-                    Hello
-                </div>
-                <div className={style.app_message}>
-                    Hi
-                </div>
-                <div className={style.app_message}>
-                    What's up
-                </div>
-                <div className={style.app_message}>
-                    How are you doing
-                </div>
+            <div className={style.dialog_messages}>
+                <Message text='Hello'/>
+                <Message text='Hi'/>
+                <Message text='Yo!'/>
+                <Message text='How are you doing?'/>
             </div>
         </div>
     );

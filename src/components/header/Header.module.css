@@ -1,18 +1,18 @@
-.app_header {
+.header {
     background-color: antiquewhite;
     grid-area: app-header;
     display: grid;
     grid-template-columns: 0.5fr 11.5fr;
 }
   
-.app_header img {
+.header img {
     width: 60px;
     animation: App-logo-spin infinite 20s linear;
     pointer-events: none;
 }
 
-.app_header h3 {
-
+.header h3 {
+    text-transform: uppercase;;
 }
 
 @keyframes App-logo-spin {
