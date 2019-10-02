@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './Profile.module.css';
 import Posts from "./posts/Posts";
 import ProfileInfo from "./info/ProfileInfo";
 
@@ -10,6 +9,6 @@ const Profile = () => {
             <Posts/>
         </div>
     );
-}
+};
 
 export default Profile;

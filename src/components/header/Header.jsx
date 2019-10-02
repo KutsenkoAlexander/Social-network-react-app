@@ -8,6 +8,6 @@ const Header = () => {
             <h3>company name</h3>
         </header>
     );
-}
+};
 
 export default Header;
