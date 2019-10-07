@@ -13,10 +13,10 @@ let state = {
             {id: 4, name: 'Jim'}
         ],
         messages: [
-            {id: 1, text: 'Hello'},
-            {id: 2, text: 'Hi'},
-            {id: 3, text: 'Yo!'},
-            {id: 4, text: 'How are you doing?'}
+            {id: 1, text: 'Hello', from: 1, to: 2},
+            {id: 2, text: 'Hi', from: 1, to: 2},
+            {id: 3, text: 'Yo!', from: 2, to: 1},
+            {id: 4, text: 'How are you doing?', from: 1, to: 2}
         ]
     }
 };

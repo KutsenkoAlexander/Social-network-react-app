@@ -5,26 +5,9 @@
 
 .dialog_items {
     color: brown;
-    padding: 10px;
-}
-
-.dialog_items .active {
-    color: coral;
-}
-
-.dialog {
-    padding: 6px 5px;
-    border-bottom: 1px #a2a2a2 solid;
+    padding: 10px 5px 10px 10px;
 }
 
 .dialog_messages {
-    padding: 10px;
-}
-
-.message {
-    margin-bottom: 7px;
-    padding: 5px;
-    border-radius: 7px;
-    background-color: antiquewhite;
-    border-bottom: 1px solid khaki;
+    padding: 10px 10px 10px 5px;
 }
