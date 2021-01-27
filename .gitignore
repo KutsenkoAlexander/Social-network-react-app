@@ -29,3 +29,4 @@ yarn-error.log*
 *.ipr
 /out/
 
+package-lock.json
