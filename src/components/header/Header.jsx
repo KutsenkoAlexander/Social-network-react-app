@@ -1,13 +1,15 @@
-import React from 'react';
-import style from './Header.module.css';
+import React from "react";
 
-const Header = () => {
+function Header() {
     return (
-        <header className={style.header}>
-            <img src="https://images.vexels.com/media/users/3/142743/isolated/preview/9899362db1352da66f38b5d35d60eb8f-icono-de-anillos-de-pintura-colorida-by-vexels.png" alt="Logo"/>
-            <h3>company name</h3>
+        <header className="App-header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png"
+                 className="App-logo App-logo-size"
+                 alt="logo"
+                 title="Logo"
+            />
         </header>
     );
-};
+}
 
 export default Header;
