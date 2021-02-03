@@ -1,11 +1,11 @@
 import React from "react";
-import './Header.css';
+import style from "./Header.module.css";
 
 function Header() {
     return (
-        <header className="App-header">
+        <header className={style.header}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png"
-                 className="App-logo App-logo-size"
+                 className={`${style.logo} ${style.logoSize}`}
                  alt="logo"
                  title="Logo"
             />
