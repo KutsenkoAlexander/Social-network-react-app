@@ -1,6 +1,6 @@
 import React from "react";
 
-function Content() {
+function Profile() {
     return <div className="App-content">
         <div>
             <img
@@ -20,4 +20,4 @@ function Content() {
 }
 
 
-export default Content;
+export default Profile;
