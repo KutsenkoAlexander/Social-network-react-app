@@ -9,6 +9,7 @@ function Header() {
                  alt="logo"
                  title="Logo"
             />
+            <h1>Company name</h1>
         </header>
     );
 }
