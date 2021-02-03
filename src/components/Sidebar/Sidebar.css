@@ -1,0 +1,4 @@
+.App-sidebar {
+    grid-area: sidebar;
+    background-color: cadetblue;
+}

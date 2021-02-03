@@ -1,32 +1,14 @@
 .App {
     display: grid;
     grid-template-areas:
-            "app-header app-header"
-            "app-sidebar app-content";
+            "header header"
+            "sidebar content";
     grid-template-rows: 128px 1fr;
     grid-template-columns: 2fr 10fr;
     width: 1000px;
     margin: 0 auto;
 }
 
-
-
 .App-link {
     color: #e99544;
-}
-
-
-
-.App-sidebar {
-    grid-area: app-sidebar;
-    background-color: cadetblue;
-}
-
-.App-content {
-    grid-area: app-content;
-    background-color: lightblue;
-}
-
-.App-content img {
-    width: 850px;
 }
