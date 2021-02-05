@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Sidebar.module.css";
 
-function Sidebar() {
+const Sidebar = () => {
     return (
         <nav className={styles.sidebar}>
             <div className={styles.item}>

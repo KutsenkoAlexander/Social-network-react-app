@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-function MyPosts() {
+const MyPosts = () => {
     return (
         <div>
             <div>
@@ -14,7 +14,6 @@ function MyPosts() {
                 <div className={styles.posts}>
                     <Post message="Hello World!" likeCount="10"/>
                     <Post message="It's second post." likeCount="1"/>
-                    <Post message="Third message :)" likeCount="4"/>
                 </div>
             </div>
         </div>
