@@ -1,8 +1,3 @@
-.profile {
-    grid-area: content;
-    background-color: lightblue;
-}
-
-.profile img {
+.profileImg {
     width: 850px;
 }

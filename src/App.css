@@ -16,3 +16,8 @@ body {
 .App-link {
     color: #e99544;
 }
+
+.wrapperContent {
+    grid-area: content;
+    background-color: lightblue;
+}
