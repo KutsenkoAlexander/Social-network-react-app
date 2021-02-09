@@ -1,23 +1,34 @@
 import React from "react";
 import styles from "./Sidebar.module.css";
+import {NavLink} from "react-router-dom";
 
 const Sidebar = () => {
     return (
         <nav className={styles.sidebar}>
             <div className={styles.item}>
-                <a href="/profile">Profile</a>
+                <NavLink to="/profile"  activeClassName={styles.activeLink}>
+                    Profile
+                </NavLink>
             </div>
             <div className={styles.item}>
-                <a href="/dialogs">Message</a>
+                <NavLink to="/dialogs" activeClassName={styles.activeLink}>
+                    Message
+                </NavLink>
             </div>
             <div className={styles.item}>
-                <a href="/news">News</a>
+                <NavLink to="/news" activeClassName={styles.activeLink}>
+                    News
+                </NavLink>
             </div>
             <div className={styles.item}>
-                <a href="/music">Music</a>
+                <NavLink to="/music" activeClassName={styles.activeLink}>
+                    Music
+                </NavLink>
             </div>
             <div className={styles.item}>
-                <a href="/settings">Settings</a>
+                <NavLink to="/settings" activeClassName={styles.activeLink}>
+                    Settings
+                </NavLink>
             </div>
         </nav>
     );
