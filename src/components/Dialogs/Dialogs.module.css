@@ -1,0 +1,24 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogItems {
+
+}
+
+.dialog {
+    margin: 10px;
+}
+
+.dialogItems .active{
+    color: dodgerblue;
+}
+
+.messages {
+
+}
+
+.message {
+    margin: 10px;
+}
