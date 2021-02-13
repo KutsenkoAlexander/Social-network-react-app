@@ -1,0 +1,13 @@
+.dialog {
+    margin: 10px;
+}
+
+.dialog a{
+    text-decoration: none;
+    color: #e99544;
+}
+
+.dialog .active{
+    color: dodgerblue;
+    text-decoration: none;
+}

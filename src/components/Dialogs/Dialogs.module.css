@@ -7,19 +7,6 @@
 
 }
 
-.dialog {
-    margin: 10px;
-}
-
-.dialogItems .active{
-    color: dodgerblue;
-    text-decoration: none;
-}
-
 .messages {
 
-}
-
-.message {
-    margin: 10px;
 }
