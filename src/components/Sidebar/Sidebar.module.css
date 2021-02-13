@@ -3,15 +3,10 @@
     background-color: cadetblue;
 }
 
-.item {
-    margin: 10px;
+.friends {
+
 }
 
-.item a {
-    color: azure;
-    text-decoration: none;
-}
+.friend {
 
-.item a.activeLink {
-    color: orange;
 }

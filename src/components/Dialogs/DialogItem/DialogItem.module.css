@@ -2,12 +2,21 @@
     margin: 10px;
 }
 
-.dialog a{
-    text-decoration: none;
-    color: #e99544;
+
+.dialog img {
+    width: 64px;
+    border-radius: 51%;
+    vertical-align: middle;
 }
 
-.dialog .active{
+.dialog a {
+    text-decoration: none;
+    color: #e99544;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.dialog .active {
     color: dodgerblue;
     text-decoration: none;
 }

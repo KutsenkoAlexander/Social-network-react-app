@@ -8,12 +8,14 @@ const Dialogs = (props) => {
         <div className={styles.dialogs}>
             <div className={styles.dialogItems}>
                 {
-                    props.dialogs.map(dialog => <DialogItem id={dialog.id} name={dialog.name}/>)
+                    props.state.dialogs.map(dialog => <DialogItem id={dialog.id}
+                                                                  name={dialog.name}
+                                                                  avatar={dialog.avatar}/>)
                 }
             </div>
             <div className={styles.messages}>
                 {
-                    props.messages.map(message => <Message id={message.id} text={message.text}/>)
+                    props.state.messages.map(message => <Message id={message.id} text={message.text}/>)
                 }
             </div>
         </div>
