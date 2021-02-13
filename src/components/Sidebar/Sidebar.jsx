@@ -6,7 +6,7 @@ import Friends from "./Friends/Friends";
 const Sidebar = (props) => {
     return (
         <div className={styles.sidebar}>
-            <Navigation/>
+            <Navigation navigation={props.navigation}/>
             <Friends friends={props.friends}/>
         </div>
     );

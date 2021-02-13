@@ -3,21 +3,20 @@ import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
+    let postElements = props.posts.map(post => <Post id={post.id}
+                                                     message={post.text}
+                                                     likeCount={post.likeCount}/>)
     return (
         <div>
-            <div>
-                <div className={styles.newPost}>
-                    <h3>New post</h3>
-                    <div><textarea/></div>
-                    <div><button>Add post</button></div>
+            <div className={styles.newPost}>
+                <h3>New post</h3>
+                <div><textarea/></div>
+                <div>
+                    <button>Add post</button>
                 </div>
-                <div className={styles.posts}>
-                    {
-                        props.posts.map(post => <Post id={post.id}
-                                                      message={post.text}
-                                                      likeCount={post.likeCount} />)
-                    }
-                </div>
+            </div>
+            <div className={styles.posts}>
+                {postElements}
             </div>
         </div>
     );
