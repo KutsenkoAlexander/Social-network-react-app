@@ -2,7 +2,12 @@ import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+    let postData = [
+        {id: 1, text: 'Hello World!', likeCount: 10},
+        {id: 2, text: 'It\'s second post.', likeCount: 3}
+    ];
+
     return (
         <div>
             <div>
@@ -12,8 +17,14 @@ const MyPosts = () => {
                     <div><button>Add post</button></div>
                 </div>
                 <div className={styles.posts}>
-                    <Post message="Hello World!" likeCount="10"/>
-                    <Post message="It's second post." likeCount="1"/>
+                    <Post id={postData[0].id}
+                          message={postData[0].text}
+                          likeCount={postData[0].likeCount}
+                    />
+                    <Post id={postData[1].id}
+                          message={postData[1].text}
+                          likeCount={postData[1].likeCount}
+                    />
                 </div>
             </div>
         </div>
