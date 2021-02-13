@@ -1,27 +1,23 @@
 body {
-  background-color: lightgray;
-}
- 
-.wrapper {
-  /* text-align: center; */
-  display: grid;
-  grid-template-areas:
-  "app-header app-header"
-  "app-nav app-content";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  /* grid-gap: 10px; */
-
-  min-width: 1024px;
-  max-width: 1200px;
-  background-color: white;
-  margin: 0 auto;
+    background-color: #ffffff;
 }
 
-.wrapper_link {
-  color: #61dafb;
+.App {
+    display: grid;
+    grid-template-areas:
+            "header header"
+            "sidebar content";
+    grid-template-rows: 128px 1fr;
+    grid-template-columns: 2fr 10fr;
+    width: 1000px;
+    margin: 0 auto;
 }
 
-.wrapper_content {
-  grid-area: app-content;
+.App-link {
+    color: #e99544;
+}
+
+.wrapperContent {
+    grid-area: content;
+    background-color: lightblue;
 }

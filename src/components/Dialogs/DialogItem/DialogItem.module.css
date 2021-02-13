@@ -1,0 +1,22 @@
+.dialog {
+    margin: 10px;
+}
+
+
+.dialog img {
+    width: 64px;
+    border-radius: 51%;
+    vertical-align: middle;
+}
+
+.dialog a {
+    text-decoration: none;
+    color: #e99544;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.dialog .active {
+    color: dodgerblue;
+    text-decoration: none;
+}

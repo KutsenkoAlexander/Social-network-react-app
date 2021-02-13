@@ -1,0 +1,12 @@
+.item {
+    margin: 10px;
+}
+
+.item a {
+    color: azure;
+    text-decoration: none;
+}
+
+.item a.activeLink {
+    color: orange;
+}

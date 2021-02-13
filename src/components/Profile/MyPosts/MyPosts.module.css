@@ -1,0 +1,17 @@
+.posts {
+    background-color: #f6f6f6;
+    padding: 10px 10px 1px 10px;
+}
+
+.newPost {
+    margin: 10px;
+}
+
+.newPost h3 {
+    margin: 0 0 5px 0;
+    padding: 0;
+}
+
+.newPost button {
+
+}

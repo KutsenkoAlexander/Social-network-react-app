@@ -1,24 +1,32 @@
 let state = {
     profilePage: {
         posts: [
-            {id: 1, message: 'Hi, how are you?', numberLikes: 15},
-            {id: 2, message: 'This is my first post :)', numberLikes: 22}
+            {id: 1, text: 'Hello World!', likeCount: 10},
+            {id: 2, text: 'It\'s second post.', likeCount: 3}
         ]
     },
-    dialogsPage: {
+    dialogPage: {
         dialogs: [
-            {id: 1, name: 'Alex'},
-            {id: 2, name: 'John'},
-            {id: 3, name: 'Bob'},
-            {id: 4, name: 'Jim'}
+            {id: 1, name: 'Bob', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7IdJ1FLinVuz9qnO_OkkJArH8xsRkXIOv8w&usqp=CAU'},
+            {id: 2, name: 'Marty', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7IdJ1FLinVuz9qnO_OkkJArH8xsRkXIOv8w&usqp=CAU'},
+            {id: 3, name: 'Tom', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7IdJ1FLinVuz9qnO_OkkJArH8xsRkXIOv8w&usqp=CAU'},
+            {id: 4, name: 'Jerry', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7IdJ1FLinVuz9qnO_OkkJArH8xsRkXIOv8w&usqp=CAU'},
+            {id: 5, name: 'Barbara', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7IdJ1FLinVuz9qnO_OkkJArH8xsRkXIOv8w&usqp=CAU'}
         ],
         messages: [
-            {id: 1, text: 'Hello', from: 1, to: 2},
-            {id: 2, text: 'Hi', from: 1, to: 2},
-            {id: 3, text: 'Yo!', from: 2, to: 1},
-            {id: 4, text: 'How are you doing?', from: 1, to: 2}
+            {id: 1, text: 'Hello'},
+            {id: 2, text: 'Morning!'},
+            {id: 3, text: 'Yo'}
+        ]
+    },
+    sidebar: {
+        friends: [
+            {id: 1, name: 'Kim', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7IdJ1FLinVuz9qnO_OkkJArH8xsRkXIOv8w&usqp=CAU'},
+            {id: 2, name: 'Tom', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7IdJ1FLinVuz9qnO_OkkJArH8xsRkXIOv8w&usqp=CAU'},
+            {id: 3, name: 'Rich', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7IdJ1FLinVuz9qnO_OkkJArH8xsRkXIOv8w&usqp=CAU'},
+            {id: 4, name: 'Mike', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7IdJ1FLinVuz9qnO_OkkJArH8xsRkXIOv8w&usqp=CAU'}
         ]
     }
-};
+}
 
 export default state;
