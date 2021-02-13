@@ -13,6 +13,7 @@
 
 .dialogItems .active{
     color: dodgerblue;
+    text-decoration: none;
 }
 
 .messages {
