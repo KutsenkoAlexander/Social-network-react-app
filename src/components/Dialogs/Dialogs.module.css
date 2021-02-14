@@ -9,4 +9,23 @@
 
 .messages {
     background-color: #f6f6f6;
+    display: grid;
+    grid-template-rows: 6fr 1fr;
+}
+
+.newMessage {
+    background-color: darkgrey;
+    padding: 10px;
+}
+
+.newMessage textarea {
+    vertical-align: middle;
+    width: 89%;
+    height: 50px;
+    border: none;
+}
+
+.newMessage button {
+    vertical-align: middle;
+    margin: 0 0 0 10px;
 }
