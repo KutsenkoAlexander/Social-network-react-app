@@ -16,9 +16,11 @@ const App = (props) => {
                      friends={props.state.sidebar.friends}/>
             <div className="wrapperContent">
                 <Route path="/profile"
-                       render={() => <Profile state={props.state.profilePage}/>}/>
+                       render={() => <Profile state={props.state.profilePage}
+                                              addPost={props.addPost}/>}/>
                 <Route path="/dialogs"
-                       render={() => <Dialogs state={props.state.dialogPage}/>}/>
+                       render={() => <Dialogs state={props.state.dialogPage}
+                                              sendMessage={props.sendMessage}/>}/>
                 <Route path="/news"
                        render={() => <News/>}/>
                 <Route path="/music"
