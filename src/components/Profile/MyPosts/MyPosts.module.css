@@ -7,11 +7,22 @@
     margin: 10px;
 }
 
+.addPost {
+    background-color: steelblue;
+    padding: 10px;
+}
+
 .newPost h3 {
     margin: 0 0 5px 0;
     padding: 0;
 }
 
-.newPost button {
+.newPost textarea {
+    vertical-align: middle;
+    width: 89%;
+}
 
+.newPost button {
+    vertical-align: middle;
+    margin-left: 7px;
 }

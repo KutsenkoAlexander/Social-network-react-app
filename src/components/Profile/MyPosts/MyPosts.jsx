@@ -20,10 +20,8 @@ const MyPosts = (props) => {
         <div>
             <div className={styles.newPost}>
                 <h3>New post</h3>
-                <div>
+                <div className={styles.addPost}>
                     <textarea ref={newPostElement}/>
-                </div>
-                <div>
                     <button onClick={addPost}>Add post</button>
                 </div>
             </div>
