@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {addPost, sendMessage} from './redux/state';
+import {addPost, sendMessage, updateNewMessageText, updateNewPostText} from './redux/state';
 import {BrowserRouter} from "react-router-dom";
 
 export let rerenderEntireTree = (state) => {
@@ -11,7 +11,10 @@ export let rerenderEntireTree = (state) => {
             <BrowserRouter>
                 <App state={state}
                      addPost={addPost}
-                     sendMessage={sendMessage}/>
+                     updateNewPostText={updateNewPostText}
+                     sendMessage={sendMessage}
+                     updateNewMessageText={updateNewMessageText}
+                />
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')

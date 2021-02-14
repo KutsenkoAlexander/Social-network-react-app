@@ -10,7 +10,7 @@
 .messages {
     background-color: #f6f6f6;
     display: grid;
-    grid-template-rows: 6fr 1fr;
+    grid-template-rows: 6fr 74px;
 }
 
 .newMessage {
