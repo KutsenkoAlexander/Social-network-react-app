@@ -1,13 +1,5 @@
 let store = {
-    rerenderEntireTree() {
-        console.log("State updated");
-    },
-
-    subscribe(observer) {
-        this.rerenderEntireTree = observer;
-    },
-
-    state: {
+    _state: {
         profilePage: {
             posts: [
                 {id: 1, text: 'Hello World!', likeCount: 10},
@@ -83,41 +75,53 @@ let store = {
         }
     },
 
+    getState() {
+        return this._state;
+    },
+
+    _callSubscriber() {
+        console.log("State updated");
+    },
+
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
 //--------------------------
 //---------- Post ----------
 //--------------------------
     addPost() {
-        let posts = store.state.profilePage.posts;
+        let posts = this._state.profilePage.posts;
         let newPost = {
             id: posts.length + 1,
-            text: store.state.profilePage.newPostText,
+            text: this._state.profilePage.newPostText,
             likeCount: 0
         };
         posts.push(newPost);
-        store.updateNewPostText('');
+        this.updateNewPostText('');
     },
 
     updateNewPostText(text) {
-        store.state.profilePage.newPostText = text;
-        store.rerenderEntireTree();
+        this._state.profilePage.newPostText = text;
+        this._callSubscriber();
     },
 
 //--------------------------
 //-------- Message ---------
 //--------------------------
     sendMessage() {
-        let messages = this.state.dialogPage.messages;
+        let messages = this._state.dialogPage.messages;
         let newMessage = {
             id: messages.length + 1,
-            text: this.state.dialogPage.newMessageText
+            text: this._state.dialogPage.newMessageText
         };
         messages.push(newMessage);
         this.updateNewMessageText('');
     },
 
     updateNewMessageText(text) {
-        this.state.dialogPage.newMessageText = text;
-        this.rerenderEntireTree();
+        this._state.dialogPage.newMessageText = text;
+        this._callSubscriber();
     }
 }
 

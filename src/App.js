@@ -12,12 +12,16 @@ const App = (props) => {
     return (
         <div className="App">
             <Header/>
-            <Sidebar sidebar={props.store.state.sidebar}/>
+            <Sidebar sidebar={props.state.sidebar}/>
             <div className="wrapperContent">
                 <Route path="/profile"
-                       render={() => <Profile store={props.store}/>}/>
+                       render={() => <Profile profilePage={props.state.profilePage}
+                                              addPost={props.addPost}
+                                              updateNewPostText={props.updateNewPostText}/>}/>
                 <Route path="/dialogs"
-                       render={() => <Dialogs store={props.store}/>}/>
+                       render={() => <Dialogs dialogPage={props.state.dialogPage}
+                                              sendMessage={props.sendMessage}
+                                              updateNewMessageText={props.updateNewMessageText}/>}/>
                 <Route path="/news"
                        render={() => <News/>}/>
                 <Route path="/music"
