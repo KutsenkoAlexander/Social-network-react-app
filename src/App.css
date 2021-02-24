@@ -19,5 +19,4 @@ body {
 
 .wrapperContent {
     grid-area: content;
-    background-color: lightblue;
 }
