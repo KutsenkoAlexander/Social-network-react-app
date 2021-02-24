@@ -3,7 +3,7 @@
     background-color: darkgrey;
     color: white;
     padding: 10px;
-    width: auto;
-    max-width: 50%;
+    width: 50%;
     border-radius: 9px;
+    word-break: break-word;
 }
