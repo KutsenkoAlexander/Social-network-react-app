@@ -7,11 +7,8 @@ const Friends = (props) => {
         props.friends.map(friend => <Friend id={friend.id}
                                             name={friend.name}
                                             avatar={friend.avatar}/>)
-    return (
-        <div className={styles.friends}>
-            {friendsElements}
-        </div>
-    );
+
+    return <div className={styles.friends}>{friendsElements}</div>;
 }
 
 export default Friends;

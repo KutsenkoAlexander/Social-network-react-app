@@ -7,11 +7,7 @@ const Navigation = (props) => {
         props.navigation.map(navItem => <NavigationItem path={navItem.path}
                                                         name={navItem.name}/>);
 
-    return (
-        <nav>
-            {navigationElements}
-        </nav>
-    );
+    return (<nav>{navigationElements}</nav>);
 }
 
 export default Navigation;
