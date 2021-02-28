@@ -8,16 +8,16 @@ import Settings from "./components/Settings/Settings";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
-const App = (props) => {
+const App = () => {
     return (
         <div className="App">
             <Header/>
-            <Sidebar store={props.store}/>
+            <Sidebar/>
             <div className="wrapperContent">
                 <Route path="/profile"
-                       render={() => <Profile store={props.store}/>}/>
+                       render={() => <Profile/>}/>
                 <Route path="/dialogs"
-                       render={() => <DialogsContainer store={props.store}/>}/>
+                       render={() => <DialogsContainer/>}/>
                 <Route path="/news"
                        render={() => <News/>}/>
                 <Route path="/music"

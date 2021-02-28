@@ -6,8 +6,8 @@ import FriendsContainer from "./Friends/FriendsContainer";
 const Sidebar = (props) => {
     return (
         <div className={styles.sidebar}>
-            <NavigationContainer store={props.store}/>
-            <FriendsContainer store={props.store}/>
+            <NavigationContainer/>
+            <FriendsContainer/>
         </div>
     );
 }
