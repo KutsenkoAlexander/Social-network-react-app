@@ -7,10 +7,12 @@ import {sendMessageActionCreator} from "../../redux/dialogReducer";
 const Dialogs = (props) => {
     let dialogsElements =
         props.dialogs.map(dialog => <DialogItem id={dialog.id}
+                                                key={dialog.id}
                                                 name={dialog.name}
                                                 avatar={dialog.avatar}/>);
     let messagesElement =
         props.messages.map(message => <Message id={message.id}
+                                               key={message.id}
                                                text={message.text}/>)
 
     let newMessageElement = React.createRef();

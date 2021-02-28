@@ -9,7 +9,8 @@ body {
             "sidebar content";
     grid-template-rows: 128px 1fr;
     grid-template-columns: 2fr 10fr;
-    width: 1000px;
+    min-width: 1000px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
