@@ -17,7 +17,7 @@ const MyPosts = (props) => {
 
     let updateNewPostText = () => {
         let text = newPostElement.current.value;
-        props.updataNewPostTextContainer(text);
+        props.updateNewPostTextContainer(text);
     }
 
     return (
