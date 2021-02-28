@@ -1,0 +1,30 @@
+.userItem {
+    background-color: burlywood;
+    padding: 10px;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
+}
+
+.avatar {
+    display: grid;
+    grid-template-rows: 136px 1fr;
+    vertical-align: middle;
+    align-content: center;
+}
+
+.avatar img {
+    max-width: 128px;
+    min-width: 128px;
+    height: 128px;
+    border-radius: 51%;
+    margin-right: 10px;
+}
+
+.avatar button {
+    margin: 0 auto;
+}
+
+.location {
+    margin: 10px auto 0 auto;
+}
