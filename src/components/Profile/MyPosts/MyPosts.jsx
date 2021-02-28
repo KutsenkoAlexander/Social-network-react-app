@@ -6,6 +6,7 @@ import {addPostActionCreator} from "../../../redux/profileReducer";
 const MyPosts = (props) => {
     let postElements =
         props.posts.map(post => <Post id={post.id}
+                                      key={post.id}
                                       message={post.text}
                                       likeCount={post.likeCount}/>)
 
