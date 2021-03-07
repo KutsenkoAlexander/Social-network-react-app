@@ -1,5 +1,5 @@
-import React from "react";
-import NavigationItem from "./NavigationItem/NavigationItem";
+import React from 'react';
+import NavigationItem from './NavigationItem/NavigationItem';
 
 const Navigation = (props) => {
     let navigationElements =
