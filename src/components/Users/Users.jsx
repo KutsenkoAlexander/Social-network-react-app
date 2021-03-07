@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from "./Users.module.css";
-import userAvatar from "../../assets/img/avatar.jfif";
+import styles from './Users.module.css';
+import userAvatar from '../../assets/img/avatar.jfif';
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -38,8 +38,8 @@ const Users = (props) => {
                         <p>{user.status}</p>
                     </div>
                     <div className={styles.location}>
-                        <p>{"user.location.country"}</p>
-                        <p>{"user.location.city"}</p>
+                        <p>{'user.location.country'}</p>
+                        <p>{'user.location.city'}</p>
                     </div>
                 </div>
             )
