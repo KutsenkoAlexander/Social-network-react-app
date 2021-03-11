@@ -2,7 +2,7 @@
     background-color: antiquewhite;
     grid-area: header;
     display: grid;
-    grid-template-columns: 1.5fr 10.5fr;
+    grid-template-columns: 2fr 9fr 1fr;
 }
 
 .header img {
@@ -24,4 +24,13 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+.loginBlock {
+
+}
+
+.loginBlock a {
+    color: chocolate;
+    text-decoration: none;
 }
