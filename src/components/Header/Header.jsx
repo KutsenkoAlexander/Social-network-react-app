@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Header.module.css';
 import {NavLink} from "react-router-dom";
+import userAvatar from '../../assets/img/avatar.jfif';
 
 const Header = (props) => {
     return (
@@ -13,7 +14,9 @@ const Header = (props) => {
             <h1>Company name</h1>
             <div className={style.loginBlock}>
                 {props.isAuth
-                    ? props.login
+                    ? <div>
+                        <img alt={'avatar'} src={props.profile.photos.small ? props.profile.photos.small : userAvatar}/>
+                        <p>{props.profile.fullName}</p></div>
                     : <NavLink to={'/login'}>Login</NavLink>
                 }
             </div>

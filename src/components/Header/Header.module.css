@@ -27,10 +27,23 @@
 }
 
 .loginBlock {
-
+    margin: 0 auto;
 }
 
 .loginBlock a {
     color: chocolate;
     text-decoration: none;
+}
+
+.loginBlock img {
+    width: 60px;
+    border-radius: 50%;
+    margin-top: 10px;
+    animation: none;
+}
+
+.loginBlock p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
