@@ -13,11 +13,13 @@ const Header = (props) => {
             />
             <h1>Company name</h1>
             <div className={style.loginBlock}>
-                {props.isAuth
-                    ? <div>
-                        <img alt={'avatar'} src={props.profile.photos.small ? props.profile.photos.small : userAvatar}/>
-                        <p>{props.profile.fullName}</p></div>
-                    : <NavLink to={'/login'}>Login</NavLink>
+                {
+                    props.isAuth
+                        ? <div>
+                            <img alt={'avatar'} src={props.profile.photos.small ? props.profile.photos.small : userAvatar}/>
+                            <p>{props.profile.fullName}</p>
+                        </div>
+                        : <NavLink to={'/login'}>Login</NavLink>
                 }
             </div>
         </header>
