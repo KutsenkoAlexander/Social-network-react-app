@@ -1,23 +1,22 @@
 import React from 'react';
 import Header from "./Header";
-import * as axios from "axios";
-import {setAuthUserData} from "../../redux/authReducer";
+import {setAuthUserData, setCurrentUserProfile} from "../../redux/authReducer";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../redux/profileReducer";
+import {AuthAPI} from "../../api/authApi";
+import {ProfileApi} from "../../api/profileApi";
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-            withCredentials: true
-        })
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    let {id, email, login} = response.data.data;
-                    //todo add current user profile to reducer
-                    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
-                        .then(response => {
-                            this.props.setUserProfile(response.data)
-                            this.props.setAuthUserData(id, email, login);
+        AuthAPI.getAuth()
+            .then(data => {
+                if (data.resultCode === 0) {
+                    let {id, email, login} = data.data;
+                    ProfileApi.getProfile(id)
+                        .then(data => {
+                            if (data) {
+                                this.props.setCurrentUserProfile(data)
+                                this.props.setAuthUserData(id, email, login);
+                            }
                         });
                 }
             });
@@ -31,7 +30,7 @@ class HeaderContainer extends React.Component {
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     login: state.auth.login,
-    profile: state.profilePage.profile
+    profile: state.auth.profile
 })
 
-export default connect(mapStateToProps, {setAuthUserData, setUserProfile})(HeaderContainer);
+export default connect(mapStateToProps, {setAuthUserData, setCurrentUserProfile})(HeaderContainer);
