@@ -7,6 +7,7 @@ import {ProfileApi} from "../../api/profileApi";
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
+        //todo add thunk
         AuthAPI.getAuth()
             .then(data => {
                 if (data.resultCode === 0) {
