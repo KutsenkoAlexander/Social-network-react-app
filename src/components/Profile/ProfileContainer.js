@@ -7,6 +7,7 @@ import {ProfileApi} from "../../api/profileApi";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
+        //todo add thunk
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = this.props.currentUserProfile ? this.props.currentUserProfile.userId : 15676;
