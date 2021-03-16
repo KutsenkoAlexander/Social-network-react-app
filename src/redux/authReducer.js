@@ -40,14 +40,14 @@ export const setCurrentUserProfile = (profile) => ({
 })
 
 /************* THUNK CREATORS **************/
-export const setAuth = () => {
+export const getAuthUserData = () => {
     return (dispatch) => {
-        AuthAPI.getAuth().then(data => {
-            if (data.resultCode === 0) {
-                let {id, email, login} = data.data;
-                ProfileApi.getProfile(id).then(data => {
-                    if (data) {
-                        dispatch(setCurrentUserProfile(data));
+        AuthAPI.getAuth().then(response => {
+            if (response.data.resultCode === 0) {
+                let {id, email, login} = response.data.data;
+                ProfileApi.getProfile(id).then(response => {
+                    if (response) {
+                        dispatch(setCurrentUserProfile(response.data));
                         dispatch(setAuthUserData(id, email, login));
                     }
                 });

@@ -49,10 +49,10 @@ export const updateNewPostTextActionCreator = (text) => ({
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 
 /************* THUNK CREATORS **************/
-export const setProfile = (userId) => {
+export const getUserProfile = (userId) => {
     return (dispatch) => {
-        ProfileApi.getProfile(userId).then(data => {
-            dispatch(setUserProfile(data))
+        ProfileApi.getProfile(userId).then(response => {
+            dispatch(setUserProfile(response.data))
         });
     }
 }
