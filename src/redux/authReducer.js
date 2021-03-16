@@ -1,3 +1,6 @@
+import {AuthAPI} from "../api/authApi";
+import {ProfileApi} from "../api/profileApi";
+
 const SET_USER_DATA = 'SET_USER_DATE';
 const SET_CURRENT_USER_PROFILE = 'SET_CURRENT_USER_PROFILE';
 
@@ -27,6 +30,7 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
+/************* ACTION CREATORS **************/
 export const setAuthUserData = (userId, email, login) => ({
     type: SET_USER_DATA, data: {userId, email, login}
 })
@@ -34,5 +38,22 @@ export const setAuthUserData = (userId, email, login) => ({
 export const setCurrentUserProfile = (profile) => ({
     type: SET_CURRENT_USER_PROFILE, profile
 })
+
+/************* THUNK CREATORS **************/
+export const setAuth = () => {
+    return (dispatch) => {
+        AuthAPI.getAuth().then(data => {
+            if (data.resultCode === 0) {
+                let {id, email, login} = data.data;
+                ProfileApi.getProfile(id).then(data => {
+                    if (data) {
+                        dispatch(setCurrentUserProfile(data));
+                        dispatch(setAuthUserData(id, email, login));
+                    }
+                });
+            }
+        });
+    }
+}
 
 export default authReducer;
