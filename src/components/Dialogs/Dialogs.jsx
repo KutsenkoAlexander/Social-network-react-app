@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import {sendMessageActionCreator} from '../../redux/dialogReducer';
-import {Redirect} from 'react-router-dom';
 
 const Dialogs = (props) => {
     let dialogsElements =
@@ -19,15 +17,13 @@ const Dialogs = (props) => {
     let newMessageElement = React.createRef();
 
     let sendMessage = () => {
-        props.sendMessage(sendMessageActionCreator());
+        props.sendMessage();
     }
 
     let updateNewMessageText = () => {
         let text = newMessageElement.current.value;
         props.updateNewMessageText(text);
     }
-
-    if(!props.isAuth) return <Redirect to={'/login'}/>
 
     return (
         <div className={styles.dialogs}>
