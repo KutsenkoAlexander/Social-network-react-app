@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './Header.module.css';
-import {NavLink} from "react-router-dom";
+import {NavLink} from 'react-router-dom';
 import userAvatar from '../../assets/img/avatar.jfif';
 
 const Header = (props) => {

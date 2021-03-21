@@ -1,6 +1,7 @@
 import {addPostActionCreator, updateNewPostTextActionCreator} from '../../../redux/profileReducer';
 import MyPosts from './MyPosts';
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 
 const mapStateToProps = (state) => {
     return {
@@ -16,4 +17,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps)
+)(MyPosts);

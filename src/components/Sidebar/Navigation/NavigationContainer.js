@@ -1,5 +1,6 @@
 import Navigation from './Navigation';
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 
 const mapStateToProps = (state) => {
     return {
@@ -7,8 +8,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {}
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default compose(
+    connect(mapStateToProps)
+)(Navigation);
