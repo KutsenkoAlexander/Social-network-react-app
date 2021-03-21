@@ -1,5 +1,5 @@
-import {AuthAPI} from "../api/authApi";
-import {ProfileApi} from "../api/profileApi";
+import {AuthAPI} from '../api/authApi';
+import {ProfileApi} from '../api/profileApi';
 
 const SET_USER_DATA = 'SET_USER_DATE';
 const SET_CURRENT_USER_PROFILE = 'SET_CURRENT_USER_PROFILE';
