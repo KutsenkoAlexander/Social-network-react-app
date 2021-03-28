@@ -3,6 +3,7 @@ import {ProfileApi} from '../api/profileApi';
 
 const SET_USER_DATA = 'SET_USER_DATE';
 const SET_CURRENT_USER_PROFILE = 'SET_CURRENT_USER_PROFILE';
+const LOGIN_USER = 'LOGIN_USER';
 
 let initialState = {
     userId: null,
@@ -24,6 +25,10 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 profile: action.profile
+            };
+        case LOGIN_USER:
+            return  {
+                ...state
             }
         default:
             return state;
@@ -53,6 +58,18 @@ export const getAuthUserData = () => {
                 });
             }
         });
+    }
+}
+
+export const loginUser = (userName, password, rememberMe, captcha) => {
+    return (dispatch) => {
+        AuthAPI.loginUser(userName, password, rememberMe, captcha).then(response => {
+            if (response.data.resultCode === 0) {
+                console.log(response.data)
+            } else {
+                console.error("Unable login user: "+response.data.messages);
+            }
+        })
     }
 }
 
