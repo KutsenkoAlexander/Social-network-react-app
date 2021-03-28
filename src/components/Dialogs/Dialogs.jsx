@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
+import NewMessageForm from "./NewMessageForm";
 
 const Dialogs = (props) => {
     let dialogsElements =
@@ -14,17 +15,6 @@ const Dialogs = (props) => {
                                                key={message.id}
                                                text={message.text}/>)
 
-    let newMessageElement = React.createRef();
-
-    let sendMessage = () => {
-        props.sendMessage();
-    }
-
-    let updateNewMessageText = () => {
-        let text = newMessageElement.current.value;
-        props.updateNewMessageText(text);
-    }
-
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogItems}>
@@ -32,12 +22,7 @@ const Dialogs = (props) => {
             </div>
             <div className={styles.messages}>
                 <div>{messagesElement}</div>
-                <div className={styles.newMessage}>
-                    <textarea ref={newMessageElement}
-                              onChange={updateNewMessageText}
-                              value={props.newMessageText}/>
-                    <button onClick={sendMessage}>Send</button>
-                </div>
+                <NewMessageForm sendMessage={props.sendMessage}/>
             </div>
         </div>
     );
