@@ -1,7 +1,7 @@
 import styles from "./Dialogs.module.css";
 import React from "react";
 import {Form, Field} from "react-final-form";
-import FormStateToRedux from "../Common/FormState/FormStateToRedux";
+import FormStateToRedux from "../Common/FormControls/FormStateToRedux";
 
 const NewMessageForm = (props) => (
     <Form onSubmit={props.sendMessage}
