@@ -1,7 +1,7 @@
 import styles from "./MyPosts.module.css";
 import React from "react";
 import {Form, Field} from "react-final-form";
-import FormStateToRedux from "../../Common/FormState/FormStateToRedux";
+import FormStateToRedux from "../../Common/FormControls/FormStateToRedux";
 
 const NewPostForm = (props) => (
     <Form onSubmit={props.addPost}
