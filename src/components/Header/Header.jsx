@@ -18,6 +18,7 @@ const Header = (props) => {
                         ? <div>
                             <img alt={'avatar'} src={props.profile.photos.small ? props.profile.photos.small : userAvatar}/>
                             <p>{props.profile.fullName}</p>
+                            <button onClick={props.logoutUser}>Logout</button>
                         </div>
                         : <NavLink to={'/login'}>Login</NavLink>
                 }

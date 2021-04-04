@@ -18,8 +18,7 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_DATA:
             return {
                 ...state,
-                ...action.data,
-                isAuth: true
+                ...action.payload
             };
         case SET_CURRENT_USER_PROFILE:
             return {
@@ -36,8 +35,8 @@ const authReducer = (state = initialState, action) => {
 }
 
 /************* ACTION CREATORS **************/
-export const setAuthUserData = (userId, email, login) => ({
-    type: SET_USER_DATA, data: {userId, email, login}
+export const setAuthUserData = (userId, email, login, isAuth) => ({
+    type: SET_USER_DATA, payload: {userId, email, login, isAuth}
 })
 
 export const setCurrentUserProfile = (profile) => ({
@@ -53,7 +52,7 @@ export const getAuthUserData = () => {
                 ProfileApi.getProfile(id).then(response => {
                     if (response) {
                         dispatch(setCurrentUserProfile(response.data));
-                        dispatch(setAuthUserData(id, email, login));
+                        dispatch(setAuthUserData(id, email, login, true));
                     }
                 });
             }
@@ -61,16 +60,22 @@ export const getAuthUserData = () => {
     }
 }
 
-export const loginUser = (userName, password, rememberMe, captcha) => {
-    return (dispatch) => {
-        AuthAPI.loginUser(userName, password, rememberMe, captcha).then(response => {
-            if (response.data.resultCode === 0) {
-                console.log(response.data)
-            } else {
-                console.error("Unable login user: "+response.data.messages);
-            }
-        })
-    }
+export const loginUser = (userName, password, rememberMe, captcha) => (dispatch) => {
+    AuthAPI.login(userName, password, rememberMe, captcha).then(response => {
+        if (response.data.resultCode === 0) {
+            dispatch(getAuthUserData());
+        } else {
+            console.error("Unable login user: " + response.data.messages);
+        }
+    })
+}
+
+export const logoutUser = () => (dispatch) => {
+    AuthAPI.logout().then(response => {
+        if (response.data.resultCode === 0) {
+            dispatch(setAuthUserData(null, null, null, false));
+        }
+    })
 }
 
 export default authReducer;

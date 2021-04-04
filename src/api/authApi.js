@@ -4,11 +4,15 @@ export const AuthAPI = {
     getAuth() {
         return axiosInstance.get(`auth/me`);
     },
-    loginUser(userName, password, rememberMe, captcha) {
+    login(userName, password, rememberMe = false, captcha) {
         return axiosInstance.post(`auth/login`, {
-            email:userName,
-            password:password,
-            rememberMe:rememberMe,
-            captcha:captcha});
+            email: userName,
+            password: password,
+            rememberMe: rememberMe,
+            captcha: captcha
+        });
+    },
+    logout() {
+        return axiosInstance.delete(`auth/login`);
     }
 }
