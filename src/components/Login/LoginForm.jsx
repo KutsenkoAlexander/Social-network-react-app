@@ -22,7 +22,7 @@ const LoginForm = (props) => (
                            component={Input}
                            placeholder={'Password'}
                            type={'Password'}
-                           validate={composeValidators(required, minValue(8))}/>
+                           validate={composeValidators(required, minValue(6))}/>
                 </div>
                 <div>
                     <Field name={'rememberMe'} component={'input'} type={'checkbox'}/>Remember me
