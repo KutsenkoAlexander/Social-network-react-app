@@ -1,26 +1,26 @@
-import React from "react";
-import {compose} from "redux";
-import {connect} from "react-redux";
-import LoginForm from "./LoginForm";
-import {loginUser} from "../../redux/authReducer";
-import {Redirect} from "react-router-dom";
+import React from 'react';
+import {compose} from 'redux';
+import {connect} from 'react-redux';
+import LoginForm from './LoginForm';
+import {loginUser} from '../../redux/authReducer';
+import {Redirect} from 'react-router-dom';
+import {FORM_ERROR} from 'final-form';
 
-class LoginContainer extends React.Component {
-    _captcha = 'NLBSQf';
-
-    onSubmit = async values => {
-        this.props.loginUser(
-            values.username,
-            values.password,
-            values.rememberMe,
-            this._captcha
-        )
+const LoginContainer = (props) => {
+    const onSubmit = async (values) => {
+        return {
+            [FORM_ERROR]: await props.loginUser(
+                values.username,
+                values.password,
+                values.rememberMe,
+                'NLBSQf'
+            )
+        }
     }
 
-    render() {
-        if (this.props.isAuth) return <Redirect to={'/profile'} />
-        return <LoginForm onSubmit={this.onSubmit}/>
-    };
+    return <div>
+        {(props.isAuth) ? <Redirect to={'/profile'}/> : <LoginForm onSubmit={onSubmit}/>}
+    </div>
 }
 
 const mapStateToProps = (state) => ({isAuth: state.auth.isAuth})
