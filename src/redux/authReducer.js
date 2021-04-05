@@ -61,11 +61,11 @@ export const getAuthUserData = () => {
 }
 
 export const loginUser = (userName, password, rememberMe, captcha) => (dispatch) => {
-    AuthAPI.login(userName, password, rememberMe, captcha).then(response => {
+    return AuthAPI.login(userName, password, rememberMe, captcha).then(response => {
         if (response.data.resultCode === 0) {
             dispatch(getAuthUserData());
         } else {
-            console.error("Unable login user: " + response.data.messages);
+            return response.data.messages[0];
         }
     })
 }
