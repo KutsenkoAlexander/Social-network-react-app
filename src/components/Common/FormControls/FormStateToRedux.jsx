@@ -7,4 +7,4 @@ const FormStateToRedux = ({ form, updateFormState }) => (
     <FormSpy onChange={state => updateFormState(form, state)} />
 )
 
-export default connect(undefined, { updateFormState })(FormStateToRedux)
+export default connect(null, { updateFormState })(FormStateToRedux)

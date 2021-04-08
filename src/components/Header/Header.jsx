@@ -16,8 +16,8 @@ const Header = (props) => {
                 {
                     props.isAuth
                         ? <div>
-                            <img alt={'avatar'} src={props.profile.photos.small ? props.profile.photos.small : userAvatar}/>
-                            <p>{props.profile.fullName}</p>
+                            {/*<img alt={'avatar'} src={props.profile.photos.small ? props.profile.photos.small : userAvatar}/>*/}
+                            <p>{props.login}</p>
                             <button onClick={props.logoutUser}>Logout</button>
                         </div>
                         : <NavLink to={'/login'}>Login</NavLink>

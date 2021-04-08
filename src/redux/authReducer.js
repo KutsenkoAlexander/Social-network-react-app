@@ -26,7 +26,7 @@ const authReducer = (state = initialState, action) => {
                 profile: action.profile
             };
         case LOGIN_USER:
-            return  {
+            return {
                 ...state
             }
         default:
@@ -44,20 +44,13 @@ export const setCurrentUserProfile = (profile) => ({
 })
 
 /************* THUNK CREATORS **************/
-export const getAuthUserData = () => {
-    return (dispatch) => {
-        AuthAPI.getAuth().then(response => {
-            if (response.data.resultCode === 0) {
-                let {id, email, login} = response.data.data;
-                ProfileApi.getProfile(id).then(response => {
-                    if (response) {
-                        dispatch(setCurrentUserProfile(response.data));
-                        dispatch(setAuthUserData(id, email, login, true));
-                    }
-                });
-            }
-        });
-    }
+export const getAuthUserData = () => (dispatch) => {
+    return AuthAPI.getAuth().then(response => {
+        if (response.data.resultCode === 0) {
+            let {id, email, login} = response.data.data;
+            dispatch(setAuthUserData(id, email, login, true));
+        }
+    });
 }
 
 export const loginUser = (userName, password, rememberMe, captcha) => (dispatch) => {
