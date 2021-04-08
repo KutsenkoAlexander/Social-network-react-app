@@ -32,10 +32,6 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 status: action.status
             }
-        // case UPDATE_USER_STATUS:
-        //     return {
-        //         ...state
-        //     }
         default:
             return state;
     }
@@ -47,30 +43,24 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_STATUS, status});
 
 /************* THUNK CREATORS **************/
-export const getUserProfile = (userId) => {
-    return (dispatch) => {
-        ProfileApi.getProfile(userId).then(response => {
-            dispatch(setUserProfile(response.data))
-        });
-    }
+export const getUserProfile = (userId) => (dispatch) => {
+    return ProfileApi.getProfile(userId).then(response => {
+        dispatch(setUserProfile(response.data))
+    });
 }
 
-export const getStatus = (id) => {
-    return (dispatch) => {
-        ProfileApi.getUserStatus(id).then(response => {
-            dispatch(setStatus(response.data));
-        });
-    }
+export const getStatus = (id) => (dispatch) => {
+    ProfileApi.getUserStatus(id).then(response => {
+        dispatch(setStatus(response.data));
+    });
 }
 
-export const updateStatus = (status) => {
-    return (dispatch) => {
-        ProfileApi.updateUserStatus(status).then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setStatus(status));
-            }
-        });
-    }
+export const updateStatus = (status) => (dispatch) => {
+    ProfileApi.updateUserStatus(status).then(response => {
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status));
+        }
+    });
 }
 
 export default profileReducer;
