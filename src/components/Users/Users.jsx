@@ -17,7 +17,7 @@ const Users = (props) => {
             {
                 pages.map(pageNumber => {
                     return <span
-                        className={props.currentPage === pageNumber && styles.selectedPage}
+                        className={props.currentPage === pageNumber ? styles.selectedPage : ''}
                         onClick={() => { props.onPageChanged(pageNumber) }}>
                             {pageNumber}
                         </span>;
@@ -33,9 +33,9 @@ const Users = (props) => {
                         </NavLink>
                         {
                             user.followed
-                                ? <button disabled={props.isFollowingProgress.some(id => id === user.id)}
+                                ? <button disabled={!props.isAuth || props.isFollowingProgress.some(id => id === user.id)}
                                           onClick={() => {props.unfollow(user.id)}}>Unfollow</button>
-                                : <button disabled={props.isFollowingProgress.some(id => id === user.id)}
+                                : <button disabled={!props.isAuth || props.isFollowingProgress.some(id => id === user.id)}
                                           onClick={() => {props.follow(user.id)}}>Follow</button>
                         }
                     </div>
