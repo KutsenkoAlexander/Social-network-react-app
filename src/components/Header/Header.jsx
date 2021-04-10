@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './Header.module.css';
 import {NavLink} from 'react-router-dom';
-import userAvatar from '../../assets/img/avatar.jfif';
 
 const Header = (props) => {
     return (
@@ -16,7 +15,6 @@ const Header = (props) => {
                 {
                     props.isAuth
                         ? <div>
-                            {/*<img alt={'avatar'} src={props.profile.photos.small ? props.profile.photos.small : userAvatar}/>*/}
                             <p>{props.login}</p>
                             <button onClick={props.logoutUser}>Logout</button>
                         </div>
