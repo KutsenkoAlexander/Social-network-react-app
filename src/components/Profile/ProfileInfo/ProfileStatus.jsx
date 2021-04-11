@@ -18,6 +18,7 @@ const ProfileStatus = (props) => {
     }
 
     const onStatusChange = (e) => {
+        debugger
         setStatus(e.currentTarget.value);
     }
 

@@ -4,7 +4,7 @@ import Preloader from '../../Common/Preloader/Preloader';
 import userAvatar from '../../../assets/img/avatar.jfif';
 import ProfileStatus from './ProfileStatus';
 
-const ProfileInfo = (props) => {
+const ProfileInfo = React.memo(props => {
     if (!props.profile)  {
         return <Preloader/>
     }
@@ -26,13 +26,13 @@ const ProfileInfo = (props) => {
                     <p>VK: {props.profile.contacts.vk}</p>
                     <p>Twitter: {props.profile.contacts.twitter}</p>
                     <p>Instagram: {props.profile.contacts.instagram}</p>
-                    <p>youtube: {props.profile.contacts.youtube}</p>
+                    <p>Youtube: {props.profile.contacts.youtube}</p>
                     <p>Github: {props.profile.contacts.github}</p>
                     <p>Main link: {props.profile.contacts.mainLink}</p>
                 </div>
             </div>
         </div>
     );
-}
+});
 
 export default ProfileInfo;
