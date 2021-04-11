@@ -6,8 +6,6 @@ const FormStateFromRedux = ({ state }) => (
     <pre>{JSON.stringify(state, 0, 2)}</pre>
 )
 
-
-
 export default connect((state, ownProps) => ({
     state: getFormState(state, ownProps.form)
 }))(FormStateFromRedux)

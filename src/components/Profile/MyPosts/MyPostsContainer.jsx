@@ -4,14 +4,12 @@ import {connect} from 'react-redux';
 import {compose} from 'redux';
 import React from "react";
 
-class MyPostsContainer extends React.Component {
-    addPost = async values => {
-        this.props.addPost(values.newPostText);
+const MyPostsContainer = (props) => {
+    const addPost = async (values) => {
+        props.addPost(values.newPostText);
     }
 
-    render() {
-        return <MyPosts addPost={this.addPost} posts={this.props.posts}/>
-    };
+    return <MyPosts addPost={addPost} posts={props.posts}/>
 }
 
 const mapStateToProps = (state) => {
