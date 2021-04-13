@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Music = (props) => {
+const Music = React.memo((props) => {
     return(
         <div>
             Music
         </div>
     );
-}
+})
 
 export default Music;

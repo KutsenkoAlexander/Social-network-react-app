@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from './ProfileInfo.module.css';
 
-const ProfileStatus = (props) => {
+const ProfileStatus = React.memo((props) => {
 
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status);
@@ -18,7 +18,6 @@ const ProfileStatus = (props) => {
     }
 
     const onStatusChange = (e) => {
-        debugger
         setStatus(e.currentTarget.value);
     }
 
@@ -43,6 +42,6 @@ const ProfileStatus = (props) => {
         </div>
     )
 
-}
+})
 
 export default ProfileStatus

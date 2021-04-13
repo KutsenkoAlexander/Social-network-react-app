@@ -4,23 +4,22 @@ import {connect} from 'react-redux';
 import {compose} from 'redux';
 import {withAuthRedirect} from '../Hoc/withAuthRedirect';
 import React from "react";
+import {getDialogsSelector, getMessagesSelector} from "../../redux/dialogSelector";
 
-class DialogsContainer extends React.Component {
-    sendMessage = async values => {
-        this.props.sendMessage(values.newMessageText);
+const DialogsContainer = React.memo(props => {
+    const sendMessage = async values => {
+        props.sendMessage(values.newMessageText);
     }
 
-    render() {
-        return <Dialogs sendMessage={this.sendMessage}
-                        dialogs={this.props.dialogs}
-                        messages={this.props.messages}/>
-    };
-}
+    return <Dialogs sendMessage={sendMessage}
+                        dialogs={props.dialogs}
+                        messages={props.messages}/>
+});
 
 const mapStateToProps = (state) => {
     return {
-        dialogs: state.dialogPage.dialogs,
-        messages: state.dialogPage.messages
+        dialogs: getDialogsSelector(state),
+        messages: getMessagesSelector(state)
     }
 };
 

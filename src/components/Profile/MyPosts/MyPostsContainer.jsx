@@ -3,20 +3,19 @@ import MyPosts from './MyPosts';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 import React from "react";
+import {getPostsSelector} from "../../../redux/profileSelector";
 
-const MyPostsContainer = (props) => {
+const MyPostsContainer = React.memo((props) => {
     const addPost = async (values) => {
         props.addPost(values.newPostText);
     }
 
     return <MyPosts addPost={addPost} posts={props.posts}/>
-}
+})
 
-const mapStateToProps = (state) => {
-    return {
-        posts: state.profilePage.posts
-    }
-};
+const mapStateToProps = (state) => ({
+    posts: getPostsSelector(state)
+});
 
 export default compose(
     connect(mapStateToProps, {addPost})
