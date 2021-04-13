@@ -4,34 +4,36 @@ import {compose} from 'redux';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {getStatus, getUserProfile, updateStatus} from '../../redux/profileReducer';
+import {getProfileSelector, getStatusSelector} from "../../redux/profileSelector";
+import {getIsAuthSelector, getUserIdSelector} from "../../redux/authSelector";
 
-const ProfileContainer = props => {
+const ProfileContainer = React.memo(
+    ({authUserId, history, getUserProfile, getStatus, profile, status, updateStatus, match}) => {
 
     useEffect(() => {
-        let userId = props.match.params.userId;
+        let userId = match.params.userId;
         if (!userId) {
-            userId = props.authUserId;
+            userId = authUserId;
             if (!userId) {
-                props.history.push("/login");//redirect if user isn't auth bad practise
+                history.push("/login");//redirect if user isn't auth bad practise
             }
         }
         if (userId) {
-            props.getUserProfile(userId);
-            props.getStatus(userId);
+            getUserProfile(userId);
+            getStatus(userId);
         }
-    })
+    }, [authUserId, history, getUserProfile, getStatus, match])
 
-    return <Profile {...props}
-                        profile={props.profile}
-                        status={props.status}
-                        updateStatus={props.updateStatus} />
-};
+    return <Profile profile={profile}
+                        status={status}
+                        updateStatus={updateStatus} />
+});
 
 const mapStateToProps = (state) => ({
-    profile: state.profilePage.profile,
-    status: state.profilePage.status,
-    authUserId: state.auth.userId,
-    isAuth: state.auth.isAuth
+    profile: getProfileSelector(state),
+    status: getStatusSelector(state),
+    authUserId: getUserIdSelector(state),
+    isAuth: getIsAuthSelector(state)
 });
 
 export default compose(

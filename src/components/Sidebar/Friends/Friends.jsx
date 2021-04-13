@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Friends.module.css';
 import Friend from './Friend/Friend';
 
-const Friends = (props) => {
+const Friends = React.memo((props) => {
     let friendsElements =
         props.friends.map(friend => <Friend id={friend.id}
                                             key={friend.id}
@@ -10,6 +10,6 @@ const Friends = (props) => {
                                             avatar={friend.avatar}/>)
 
     return <div className={styles.friends}>{friendsElements}</div>;
-}
+})
 
 export default Friends;

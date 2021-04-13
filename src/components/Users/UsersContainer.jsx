@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {compose} from 'redux';
 import {connect} from 'react-redux';
 import Users from './Users';
@@ -18,32 +18,30 @@ import {
     toggleFollowingProgress,
     unfollow
 } from '../../redux/usersReducer';
-import {fetchIsAuthSlc} from "../../redux/authSelector";
+import {getIsAuthSelector} from "../../redux/authSelector";
 
-class UsersContainer extends React.Component {
+const UsersContainer = React.memo(({getUsers, ...props}) => {
 
-    componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
-    }
+    useEffect(() => {
+        getUsers(props.currentPage, props.pageSize);
+    }, [getUsers, props.currentPage, props.pageSize])
 
-    onPageChanged = (pageNumber) => this.props.getUsers(pageNumber, this.props.pageSize);
+    let onPageChanged = (pageNumber) => getUsers(pageNumber, props.pageSize);
 
-    render() {
-        return <>
-            {this.props.isFetching ? <Preloader/> : null}
-            <Users totalUsersCount={this.props.totalUsersCount}
-                   pageSize={this.props.pageSize}
-                   currentPage={this.props.currentPage}
-                   onPageChanged={this.onPageChanged}
-                   users={this.props.users}
-                   unfollow={this.props.unfollow}
-                   follow={this.props.follow}
-                   isFollowingProgress={this.props.isFollowingProgress}
-                   isAuth={this.props.isAuth}
+    return <>
+            {props.isFetching ? <Preloader/> : null}
+            <Users totalUsersCount={props.totalUsersCount}
+                   pageSize={props.pageSize}
+                   currentPage={props.currentPage}
+                   onPageChanged={onPageChanged}
+                   users={props.users}
+                   unfollow={props.unfollow}
+                   follow={props.follow}
+                   isFollowingProgress={props.isFollowingProgress}
+                   isAuth={props.isAuth}
             />
         </>
-    }
-}
+})
 
 const mapStateToProps = (state) => {
     return {
@@ -53,7 +51,7 @@ const mapStateToProps = (state) => {
         currentPage: currentPageSelector(state),
         isFetching: isFetchingSelector(state),
         isFollowingProgress: isFollowingProgressSelector(state),
-        isAuth: fetchIsAuthSlc(state)
+        isAuth: getIsAuthSelector(state)
     }
 };
 

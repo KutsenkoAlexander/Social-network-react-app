@@ -1,11 +1,10 @@
 import Friends from './Friends';
 import {connect} from 'react-redux';
+import {getFriendsSelector} from "../../../redux/sidebarSelector";
 
-const mapStateToProps = (state) => {
-    return {
-        friends: state.sidebar.friends
-    }
-};
+const mapStateToProps = (state) => ({
+    friends: getFriendsSelector(state)
+});
 
 const mapDispatchToProps = (dispatch) => {
     return {}
