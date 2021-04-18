@@ -4,8 +4,8 @@ import React from 'react';
 import {composeValidators, minValue, required} from '../../utils/validators';
 import {Input} from '../Common/FormControls/FormControls';
 
-const LoginForm = (props) => (
-    <Form onSubmit={props.onSubmit}
+const LoginForm = ({onSubmit}) => (
+    <Form onSubmit={onSubmit}
           initialValues={{username: '', password: '', rememberMe: false}}
           render={({submitError, handleSubmit, form, submitting, pristine}) => (
               <form onSubmit={handleSubmit}>

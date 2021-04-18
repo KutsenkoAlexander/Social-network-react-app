@@ -4,31 +4,35 @@ import Preloader from '../../Common/Preloader/Preloader';
 import userAvatar from '../../../assets/img/avatar.jfif';
 import ProfileStatus from './ProfileStatus';
 
-const ProfileInfo = React.memo(props => {
-    if (!props.profile)  {
+const ProfileInfo = React.memo(({
+                                    profile,
+                                    status,
+                                    updateStatus
+}) => {
+    if (!profile) {
         return <Preloader/>
     }
     return (
         <div className={styles.profileInfo}>
             <div className={styles.description}>
-                <img src={props.profile.photos.large ? props.profile.photos.large : userAvatar} alt={'User avatar'}/>
+                <img src={profile.photos.large ? profile.photos.large : userAvatar} alt={'User avatar'}/>
                 <div>
-                    <h3>{props.profile.fullName}</h3>
-                    <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
-                    <p>Description: {props.profile.aboutMe}</p>
-                    <p>Looking for job: {props.profile.lookingForAJob}</p>
-                    <p>Job description: {props.profile.lookingForAJobDescription}</p>
+                    <h3>{profile.fullName}</h3>
+                    <ProfileStatus status={status} updateStatus={updateStatus}/>
+                    <p>Description: {profile.aboutMe}</p>
+                    <p>Looking for job: {profile.lookingForAJob}</p>
+                    <p>Job description: {profile.lookingForAJobDescription}</p>
                 </div>
                 <div>
                     <h4>Contacts</h4>
-                    <p>Facebook: {props.profile.contacts.facebook}</p>
-                    <p>Website: {props.profile.contacts.website}</p>
-                    <p>VK: {props.profile.contacts.vk}</p>
-                    <p>Twitter: {props.profile.contacts.twitter}</p>
-                    <p>Instagram: {props.profile.contacts.instagram}</p>
-                    <p>Youtube: {props.profile.contacts.youtube}</p>
-                    <p>Github: {props.profile.contacts.github}</p>
-                    <p>Main link: {props.profile.contacts.mainLink}</p>
+                    <p>Facebook: {profile.contacts.facebook}</p>
+                    <p>Website: {profile.contacts.website}</p>
+                    <p>VK: {profile.contacts.vk}</p>
+                    <p>Twitter: {profile.contacts.twitter}</p>
+                    <p>Instagram: {profile.contacts.instagram}</p>
+                    <p>Youtube: {profile.contacts.youtube}</p>
+                    <p>Github: {profile.contacts.github}</p>
+                    <p>Main link: {profile.contacts.mainLink}</p>
                 </div>
             </div>
         </div>

@@ -20,27 +20,37 @@ import {
 } from '../../redux/usersReducer';
 import {getIsAuthSelector} from "../../redux/authSelector";
 
-const UsersContainer = React.memo(({getUsers, ...props}) => {
-
+const UsersContainer = React.memo(({
+                                       getUsers,
+                                       currentPage,
+                                       pageSize,
+                                       totalUsersCount,
+                                       users,
+                                       unfollow,
+                                       follow,
+                                       isFollowingProgress,
+                                       isAuth,
+                                       isFetching
+}) => {
     useEffect(() => {
-        getUsers(props.currentPage, props.pageSize);
-    }, [getUsers, props.currentPage, props.pageSize])
+        getUsers(currentPage, pageSize);
+    }, [getUsers, currentPage, pageSize])
 
-    let onPageChanged = (pageNumber) => getUsers(pageNumber, props.pageSize);
+    let onPageChanged = (pageNumber) => getUsers(pageNumber, pageSize);
 
     return <>
-            {props.isFetching ? <Preloader/> : null}
-            <Users totalUsersCount={props.totalUsersCount}
-                   pageSize={props.pageSize}
-                   currentPage={props.currentPage}
-                   onPageChanged={onPageChanged}
-                   users={props.users}
-                   unfollow={props.unfollow}
-                   follow={props.follow}
-                   isFollowingProgress={props.isFollowingProgress}
-                   isAuth={props.isAuth}
-            />
-        </>
+        {isFetching ? <Preloader/> : null}
+        <Users totalUsersCount={totalUsersCount}
+               pageSize={pageSize}
+               currentPage={currentPage}
+               onPageChanged={onPageChanged}
+               users={users}
+               unfollow={unfollow}
+               follow={follow}
+               isFollowingProgress={isFollowingProgress}
+               isAuth={isAuth}
+        />
+    </>
 })
 
 const mapStateToProps = (state) => {

@@ -7,10 +7,10 @@ import {Redirect} from 'react-router-dom';
 import {FORM_ERROR} from 'final-form';
 import {getIsAuthSelector} from "../../redux/authSelector";
 
-const LoginContainer = React.memo((props) => {
+const LoginContainer = React.memo(({loginUser, isAuth}) => {
     const onSubmit = async (values) => {
         return {
-            [FORM_ERROR]: await props.loginUser(
+            [FORM_ERROR]: await loginUser(
                 values.username,
                 values.password,
                 values.rememberMe,
@@ -20,7 +20,7 @@ const LoginContainer = React.memo((props) => {
     }
 
     return <div>
-        {(props.isAuth) ? <Redirect to={'/profile'}/> : <LoginForm onSubmit={onSubmit}/>}
+        {(isAuth) ? <Redirect to={'/profile'}/> : <LoginForm onSubmit={onSubmit}/>}
     </div>
 })
 

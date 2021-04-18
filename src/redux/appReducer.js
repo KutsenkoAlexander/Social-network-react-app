@@ -6,6 +6,8 @@ let initialState = {
     init: false
 }
 
+let initFlag = false;
+
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_INIT_SUCCESS:
@@ -19,16 +21,17 @@ const authReducer = (state = initialState, action) => {
 }
 
 /************* ACTION CREATORS **************/
-export const setInitApp = () => ({
-    type: SET_INIT_SUCCESS
-})
+export const setInitApp = () => ({type: SET_INIT_SUCCESS})
 
 /************* THUNK CREATORS **************/
 export const initApp = () => (dispatch) => {
-    let dispatchResult = dispatch(getAuthUserData());
-    Promise.all([dispatchResult]).then((e) => {
-        dispatch(setInitApp());
-    });
+    if (!initFlag) {
+        let dispatchResult = dispatch(getAuthUserData());
+        Promise.all([dispatchResult]).then((e) => {
+            dispatch(setInitApp());
+            initFlag = true;
+        });
+    }
 }
 
 export default authReducer;
