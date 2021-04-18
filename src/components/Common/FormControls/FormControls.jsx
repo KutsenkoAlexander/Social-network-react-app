@@ -1,17 +1,17 @@
 import React from 'react';
 import styles from './FormControl.module.css';
 
-const FormControl = ({input, meta, ...props}) => {
-    const isError = meta.error && meta.touched;
+const FormControl = ({meta: {error, touched}, children}) => {
+    const isError = error && touched;
     return (
         <div className={styles.formControl + " "+ (isError ? styles.error : "")}>
-            {props.children}
-            {isError && <span className={styles.errorText}>{meta.error}</span>}
+            {children}
+            {isError && <span className={styles.errorText}>{error}</span>}
         </div>
     )
 }
 
 export const Input = (props) => {
-    const {input, meta, child,  ...restProps} = props;
+    const {input, ...restProps} = props;
     return <FormControl {...props}><input {...input} {...restProps}/></FormControl>
 }

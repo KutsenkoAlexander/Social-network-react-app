@@ -1,4 +1,4 @@
-const UPDATE_FORM_STATE = 'final-form-redux-example/finalForm/UPDATE_FORM_STATE';
+const UPDATE_FORM_STATE = 'social-network/form/UPDATE_FORM_STATE';
 
 // Reducer
 const formReducer = (state = {}, action = {}) => {

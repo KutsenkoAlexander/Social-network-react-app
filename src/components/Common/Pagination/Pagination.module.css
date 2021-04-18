@@ -1,0 +1,15 @@
+.pagination {
+    margin: 10px;
+    color: steelblue;
+    font-size: 18px;
+    word-break: break-word;
+}
+
+.pagination span {
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.selectedPage {
+    font-weight: bold;
+}

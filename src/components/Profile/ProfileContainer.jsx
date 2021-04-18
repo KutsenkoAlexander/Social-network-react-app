@@ -7,15 +7,15 @@ import {getStatus, getUserProfile, updateStatus} from '../../redux/profileReduce
 import {getProfileSelector, getStatusSelector} from "../../redux/profileSelector";
 import {getIsAuthSelector, getUserIdSelector} from "../../redux/authSelector";
 
-const ProfileContainer = React.memo(
-    ({authUserId, history, getUserProfile, getStatus, profile, status, updateStatus, match}) => {
-
+const ProfileContainer = React.memo((
+    {authUserId, history, getUserProfile, getStatus, profile, status, updateStatus, match}
+) => {
     useEffect(() => {
         let userId = match.params.userId;
         if (!userId) {
             userId = authUserId;
             if (!userId) {
-                history.push("/login");//redirect if user isn't auth bad practise
+                history.push("/login");//redirect if user isn't auth. This is bad practise
             }
         }
         if (userId) {
@@ -25,8 +25,8 @@ const ProfileContainer = React.memo(
     }, [authUserId, history, getUserProfile, getStatus, match])
 
     return <Profile profile={profile}
-                        status={status}
-                        updateStatus={updateStatus} />
+                    status={status}
+                    updateStatus={updateStatus}/>
 });
 
 const mapStateToProps = (state) => ({
