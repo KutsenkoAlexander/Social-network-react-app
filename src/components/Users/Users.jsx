@@ -11,13 +11,15 @@ const Users = React.memo(({
                               isAuth,
                               isFollowingProgress,
                               unfollow,
-                              follow
+                              follow,
+                              portionSize
 }) => (
     <div>
-        <Pagination totalUsersCount={totalUsersCount}
+        <Pagination totalItemsCount={totalUsersCount}
                     pageSize={pageSize}
                     currentPage={currentPage}
-                    onPageChanged={onPageChanged}/>
+                    onPageChanged={onPageChanged}
+                    portionSize={portionSize}/>
         {
             users.map(user => <UserItem key={user.id}
                                         user={user}

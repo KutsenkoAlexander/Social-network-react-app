@@ -7,9 +7,17 @@
 
 .pagination span {
     padding-right: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 .selectedPage {
     font-weight: bold;
+}
+
+.pagination button {
+    vertical-align: middle;
+    margin-right: 5px;
 }
