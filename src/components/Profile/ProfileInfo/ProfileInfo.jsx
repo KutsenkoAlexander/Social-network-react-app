@@ -7,15 +7,27 @@ import ProfileStatus from './ProfileStatus';
 const ProfileInfo = React.memo(({
                                     profile,
                                     status,
-                                    updateStatus
+                                    updateStatus,
+                                    isOwner,
+                                    saveAvatar
 }) => {
     if (!profile) {
         return <Preloader/>
     }
+
+    const onAvatarSelected = (e) => {
+        if (e.target.files.length) {
+            saveAvatar(e.target.files[0]);
+        }
+    }
+
     return (
         <div className={styles.profileInfo}>
             <div className={styles.description}>
-                <img src={profile.photos.large ? profile.photos.large : userAvatar} alt={'User avatar'}/>
+                <div>
+                    <img src={profile.photos.large ? profile.photos.large : userAvatar} alt={'User avatar'}/>
+                    {isOwner && <input type={'file'} onChange={onAvatarSelected}/>}
+                </div>
                 <div>
                     <h3>{profile.fullName}</h3>
                     <ProfileStatus status={status} updateStatus={updateStatus}/>
