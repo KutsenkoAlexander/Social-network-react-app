@@ -81,4 +81,14 @@ export const saveAvatar = (avatar) => async (dispatch) => {
     }
 }
 
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    let response = await ProfileApi.saveProfile(profile);
+    if (response.data.resultCode === 0) {
+        let response = await ProfileApi.getProfile(getState().auth.userId);
+        dispatch(setUserProfile(response.data));
+    } else {
+        return response.data.messages[0];
+    }
+}
+
 export default profileReducer;

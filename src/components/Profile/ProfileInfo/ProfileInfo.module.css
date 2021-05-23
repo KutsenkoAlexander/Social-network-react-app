@@ -5,7 +5,12 @@
 .description {
     padding: 10px;
     display: grid;
-    grid-template-columns: 2fr 5fr 5fr;
+    grid-template-columns: 2fr 10fr;
+}
+
+.profileData {
+    display: grid;
+    grid-template-columns: 6fr 6fr;
 }
 
 .description img {
@@ -24,4 +29,13 @@
 .status {
     margin: -20px 0 10px 10px;
     font-style: italic;
+}
+
+.uppercaseParagraph {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.errorText {
+    color: red;
 }
