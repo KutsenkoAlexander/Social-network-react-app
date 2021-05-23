@@ -5,7 +5,7 @@ import {composeValidators, minValue, required} from '../../utils/validators';
 import {Input} from '../Common/FormControls/FormControls';
 import styles from '../Common/FormControls/FormControl.module.css';
 
-const LoginForm = ({onSubmit}) => (
+const LoginForm = ({onSubmit, captchaUrl}) => (
     <Form onSubmit={onSubmit}
           initialValues={{username: '', password: '', rememberMe: false}}
           render={({submitError, handleSubmit, form, submitting, pristine}) => (
@@ -28,6 +28,14 @@ const LoginForm = ({onSubmit}) => (
                       <Field name={'rememberMe'}
                              component={'input'}
                              type={'checkbox'}/>Remember me
+                  </div>
+                  <div>
+                      {captchaUrl && <img src={captchaUrl} alt={'Captcha'}/>}
+                      {captchaUrl && <Field name={'captcha'}
+                                            component={Input}
+                                            placeholder={'Captcha'}
+                                            type={'text'}
+                                            validate={composeValidators(required)}/>}
                   </div>
                   {submitError && <div className={styles.errorText}>{submitError}</div>}
                   <div>
