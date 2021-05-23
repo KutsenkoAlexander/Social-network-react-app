@@ -3,12 +3,12 @@ import Profile from './Profile';
 import {compose} from 'redux';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {getStatus, getUserProfile, updateStatus} from '../../redux/profileReducer';
+import {getStatus, getUserProfile, updateStatus, saveAvatar, saveProfile} from '../../redux/profileReducer';
 import {getProfileSelector, getStatusSelector} from "../../redux/profileSelector";
 import {getIsAuthSelector, getUserIdSelector} from "../../redux/authSelector";
 
 const ProfileContainer = React.memo((
-    {authUserId, history, getUserProfile, getStatus, profile, status, updateStatus, match}
+    {authUserId, history, getUserProfile, getStatus, profile, status, updateStatus, saveAvatar, saveProfile, match}
 ) => {
     useEffect(() => {
         let userId = match.params.userId;
@@ -26,7 +26,11 @@ const ProfileContainer = React.memo((
 
     return <Profile profile={profile}
                     status={status}
-                    updateStatus={updateStatus}/>
+                    updateStatus={updateStatus}
+                    saveAvatar={saveAvatar}
+                    saveProfile={saveProfile}
+                    isOwner={!match.params.userId}
+    />
 });
 
 const mapStateToProps = (state) => ({
@@ -37,7 +41,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus}),
+    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, saveAvatar, saveProfile}),
     withRouter
     // withAuthRedirect
 )(ProfileContainer);

@@ -8,7 +8,11 @@ const Profile = (props) => {
         <div className={styles.profileWrapper}>
             <ProfileInfo profile={props.profile}
                          status={props.status}
-                         updateStatus={props.updateStatus}/>
+                         updateStatus={props.updateStatus}
+                         isOwner={props.isOwner}
+                         saveAvatar={props.saveAvatar}
+                         saveProfile={props.saveProfile}
+            />
             <MyPostsContainer/>
         </div>
     );

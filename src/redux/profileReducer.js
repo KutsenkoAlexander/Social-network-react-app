@@ -4,6 +4,7 @@ const ADD_POST = 'social-network/profile/ADD-POST';
 const SET_USER_PROFILE = 'social-network/profile/SET_USER_PROFILE';
 const SET_STATUS = 'social-network/profile/SET_STATUS';
 const DELETE_POST = 'social-network/profile/DELETE_POST';
+const SAVE_AVATAR_SUCCESS = 'social-network/profile/SAVE_AVATAR_SUCCESS';
 
 let initialState = {
     posts: [
@@ -38,6 +39,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 posts: state.posts.filter(p => p.id === action.postId)
             }
+        case SAVE_AVATAR_SUCCESS:
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos}
+            }
         default:
             return state;
     }
@@ -48,6 +54,7 @@ export const addPost = (text) => ({type: ADD_POST, text});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_STATUS, status});
 export const deletePost = (postId) => ({type: DELETE_POST, postId});
+export const setAvatarSuccess = (photos) => ({type: SAVE_AVATAR_SUCCESS, photos});
 
 /************* THUNK CREATORS **************/
 export const getUserProfile = (userId) => async (dispatch) => {
@@ -64,6 +71,23 @@ export const updateStatus = (status) => async (dispatch) => {
     let response = await ProfileApi.updateUserStatus(status);
     if (response.data.resultCode === 0) {
         dispatch(setStatus(status));
+    }
+}
+
+export const saveAvatar = (avatar) => async (dispatch) => {
+    let response = await ProfileApi.saveAvatar(avatar);
+    if (response.data.resultCode === 0) {
+        dispatch(setAvatarSuccess(response.data.data.photos));
+    }
+}
+
+export const saveProfile = (profile) => async (dispatch, getState) => {
+    let response = await ProfileApi.saveProfile(profile);
+    if (response.data.resultCode === 0) {
+        let response = await ProfileApi.getProfile(getState().auth.userId);
+        dispatch(setUserProfile(response.data));
+    } else {
+        return response.data.messages[0];
     }
 }
 

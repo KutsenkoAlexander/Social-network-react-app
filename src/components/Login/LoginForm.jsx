@@ -3,6 +3,7 @@ import FormStateToRedux from '../Common/FormControls/FormStateToRedux';
 import React from 'react';
 import {composeValidators, minValue, required} from '../../utils/validators';
 import {Input} from '../Common/FormControls/FormControls';
+import styles from '../Common/FormControls/FormControl.module.css';
 
 const LoginForm = ({onSubmit}) => (
     <Form onSubmit={onSubmit}
@@ -28,7 +29,7 @@ const LoginForm = ({onSubmit}) => (
                              component={'input'}
                              type={'checkbox'}/>Remember me
                   </div>
-                  {submitError && <div className="error">{submitError}</div>}
+                  {submitError && <div className={styles.errorText}>{submitError}</div>}
                   <div>
                       <button>Login</button>
                   </div>
