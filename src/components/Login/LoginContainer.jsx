@@ -7,24 +7,24 @@ import {Redirect} from 'react-router-dom';
 import {FORM_ERROR} from 'final-form';
 import {getIsAuthSelector} from "../../redux/authSelector";
 
-const LoginContainer = React.memo(({loginUser, isAuth}) => {
+const LoginContainer = React.memo(({loginUser, isAuth, captchaUrl}) => {
     const onSubmit = async (values) => {
         return {
             [FORM_ERROR]: await loginUser(
                 values.username,
                 values.password,
                 values.rememberMe,
-                'NLBSQf'
+                values.captcha
             )
         }
     }
 
     return <div>
-        {(isAuth) ? <Redirect to={'/profile'}/> : <LoginForm onSubmit={onSubmit}/>}
+        {(isAuth) ? <Redirect to={'/profile'}/> : <LoginForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>}
     </div>
 })
 
-const mapStateToProps = (state) => ({isAuth: getIsAuthSelector(state)})
+const mapStateToProps = (state) => ({captchaUrl: state.auth.captchaUrl, isAuth: getIsAuthSelector(state)})
 
 export default compose(
     connect(mapStateToProps, {loginUser})
